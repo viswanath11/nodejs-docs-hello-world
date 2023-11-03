@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nodejs_docs_hello_world_1698989963669-push-trigger-input-set
+  identifier: Build_nodejs_docs_hello_world_1698989963669pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: RTVN
+  pipeline:
+    identifier: Build_nodejs_docs_hello_world_1698989963669
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
