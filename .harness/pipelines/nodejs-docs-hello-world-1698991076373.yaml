@@ -38,3 +38,42 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+    - stage:
+        name: AZUREDEPLOY
+        identifier: AZUREDEPLOY
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: AzureWebApp
+          service:
+            serviceRef: AZURESERVICE
+          environment:
+            environmentRef: DEV
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: DEVINFRA
+          execution:
+            steps:
+              - step:
+                  name: Slot Deployment
+                  identifier: slotDeployment
+                  type: AzureSlotDeployment
+                  timeout: 20m
+                  spec:
+                    webApp: SampleNodeApp
+                    deploymentSlot: SampleNodeApp
+                    clean: false
+            rollbackSteps:
+              - step:
+                  name: WebApp rollback
+                  identifier: webAppRollback
+                  type: AzureWebAppRollback
+                  timeout: 20m
+                  spec: {}
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
