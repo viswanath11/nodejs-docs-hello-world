@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nodejs_docs_hello_world_1698991096487-pr-trigger-input-set
+  identifier: Build_nodejs_docs_hello_world_1698991096487prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: WERT
+  pipeline:
+    identifier: Build_nodejs_docs_hello_world_1698991096487
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
