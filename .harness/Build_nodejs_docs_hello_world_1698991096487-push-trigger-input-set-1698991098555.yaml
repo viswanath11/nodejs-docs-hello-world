@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_nodejs_docs_hello_world_1698991096487-push-trigger-input-set
+  identifier: Build_nodejs_docs_hello_world_1698991096487pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: WERT
+  pipeline:
+    identifier: Build_nodejs_docs_hello_world_1698991096487
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
